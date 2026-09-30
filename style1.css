@@ -769,6 +769,7 @@ nav .nav-container {
     align-items: center;
     font-size: 20px;
     transition: var(--transition);
+    flex-shrink: 0;
 }
 
 #ai-chat-send-btn:hover {
