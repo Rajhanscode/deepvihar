@@ -641,7 +641,225 @@ nav .nav-container {
 }
 
 /* =========================================
-   App Install Banner Styles
+   Dedicated AI Page Styles (ai-chat.html)
+   ========================================= */
+.ai-page-body {
+    background: var(--bg-light);
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 0;
+}
+
+.ai-chat-container {
+    flex: 1;
+    max-width: 900px;
+    width: 95%;
+    margin: 90px auto 20px auto;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: var(--shadow-hover);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.ai-chat-header {
+    background: var(--primary-gradient);
+    color: var(--white);
+    padding: 20px;
+    text-align: center;
+}
+
+.ai-chat-header h2 {
+    font-size: 26px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.ai-chat-header p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Chat Message Bubbles (WhatsApp Style) */
+.ai-chat-messages {
+    flex: 1;
+    padding: 25px;
+    overflow-y: auto;
+    background: #f0f4f8; 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.chat-message {
+    max-width: 75%;
+    padding: 14px 20px;
+    border-radius: 20px;
+    font-size: 15px;
+    line-height: 1.5;
+    position: relative;
+    word-wrap: break-word;
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+@keyframes popIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* AI Message - Left Side */
+.ai-message {
+    background: var(--white);
+    color: var(--text-dark);
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* User Message - Right Side */
+.user-message {
+    background: var(--primary-gradient);
+    color: #ffffff;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+    box-shadow: 0 5px 20px rgba(30, 60, 114, 0.25);
+}
+
+.ai-chat-input-area {
+    display: flex;
+    padding: 20px;
+    background: var(--white);
+    border-top: 1px solid rgba(0,0,0,0.05);
+    gap: 15px;
+}
+
+#ai-chat-input {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid rgba(0,0,0,0.1);
+    border-radius: 30px;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    transition: var(--transition);
+}
+
+#ai-chat-input:focus {
+    border-color: #1e3c72;
+}
+
+#ai-chat-send-btn {
+    background: var(--primary-gradient);
+    color: var(--white);
+    border: none;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+#ai-chat-send-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(30, 60, 114, 0.3);
+}
+
+@media (max-width: 768px) {
+    .ai-chat-container {
+        margin: 70px 0 0 0;
+        border-radius: 20px 20px 0 0;
+        width: 100%;
+        flex: 1;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+    }
+
+    .ai-chat-header {
+        padding: 15px;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .ai-chat-header h2 {
+        font-size: 20px;
+    }
+
+    .ai-chat-header p {
+        font-size: 13px;
+    }
+
+    .chat-message {
+        max-width: 90%;
+        font-size: 14px;
+        padding: 12px 16px;
+    }
+
+    .ai-chat-messages {
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .ai-chat-input-area {
+        padding: 12px;
+        gap: 10px;
+        padding-bottom: env(safe-area-inset-bottom, 12px);
+    }
+
+    #ai-chat-input {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+
+    #ai-chat-send-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+
+    .nav-container .back-btn {
+        padding: 6px 12px !important;
+        font-size: 13px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-logo-text {
+        font-size: 16px;
+    }
+    
+    .nav-logo-text img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .back-text {
+        display: none;
+    }
+
+    .nav-container .back-btn {
+        padding: 8px 12px !important;
+    }
+    
+    .nav-container .back-btn i {
+        margin-right: 0;
+    }
+}
+
+/* =========================================
+   App Install Banner Styles (New Added)
    ========================================= */
 .app-banner {
     position: fixed;
