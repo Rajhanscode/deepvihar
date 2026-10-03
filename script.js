@@ -74,3 +74,19 @@ fetch('chat.html')
         }
     })
     .catch(error => console.error('Error loading chat widget:', error));
+
+// ==========================================
+// App Install Banner Logic (Updated Rule)
+// ==========================================
+document.addEventListener("DOMContentLoaded", function () {
+    const appBanner = document.getElementById('app-install-banner');
+    const closeBannerBtn = document.getElementById('close-app-banner');
+
+    if (closeBannerBtn && appBanner) {
+        closeBannerBtn.addEventListener('click', function () {
+            // कट करने पर बैनर छिपा दें। (चूँकि LocalStorage हटा दिया गया है, 
+            // इसलिए रिफ्रेश करने या वापस मेन पेज पर आने पर यह फिर से दिखेगा)
+            appBanner.style.display = 'none';
+        });
+    }
+});
