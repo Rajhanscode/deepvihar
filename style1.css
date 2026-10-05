@@ -1027,3 +1027,52 @@ body.dark-mode .app-banner {
         font-size: 14px;
     }
 }
+/* AI Bot button positioned directly above the existing chat widget */
+.floating-ai-btn {
+    position: fixed;
+    bottom: 95px !important;
+    right: 20px !important;
+    background: var(--accent-color, #FFD700);
+    color: #1e3c72;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 9999;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+}
+
+.floating-ai-btn i {
+    font-size: 20px;
+}
+
+.floating-ai-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    background: #ffcc00;
+    color: #0f172a;
+}
+
+/* Original chat widget container fixed at the bottom right */
+#chat-widget-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9998;
+}
+
+/* Responsive styles for mobile screens */
+@media (max-width: 600px) {
+    .floating-ai-btn {
+        bottom: 85px !important;
+        right: 15px !important;
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+}
