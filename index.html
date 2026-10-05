@@ -36,7 +36,6 @@
                 Deep Vihar
             </a>
             
-            <!-- Grouped nav links and actions for better flex layout -->
             <div class="nav-right-container">
                 <div class="nav-links" id="navLinks">
                     <a href="#home" onclick="toggleMenu()">Home</a>
@@ -45,8 +44,6 @@
                     <a href="#results" onclick="toggleMenu()">Results</a>
                     <a href="#gallery" onclick="toggleMenu()">Gallery</a>
                     <a href="#admission" onclick="toggleMenu()">Admission</a>
-                    <!-- New Launch AI Button added exactly before Contact -->
-                    <a href="ai-chat.html" class="nav-ai-btn">Launch AI <i class="fas fa-robot"></i></a>
                     <a href="#contact" onclick="toggleMenu()">Contact</a>
                 </div>
                 
@@ -256,10 +253,16 @@
         </div>
     </footer>
 
-    <!-- Chat Widget Container -->
+    <!-- NEW FLOATING AI CHAT BUTTON (Bottom-Right Corner as requested) -->
+    <a href="ai-chat.html" class="floating-ai-btn" title="Launch AI Bot">
+        <i class="fas fa-robot"></i>
+        <span>AI Bot</span>
+    </a>
+
+    <!-- Original Chat Widget Container (Restored so your old doubt feature won't disappear) -->
     <div id="chat-widget-container"></div>
     
-    <!-- App Install Banner (New) -->
+    <!-- App Install Banner -->
     <div id="app-install-banner" class="app-banner">
         <div class="app-banner-left">
             <img src="logo.jpeg" alt="App Logo" class="app-banner-logo">
