@@ -859,81 +859,102 @@ nav .nav-container {
 }
 
 /* =========================================
-   App Install Banner Styles (New Added)
+   App Install Popup Modal Styles (Center Screen Ad-like Popup)
    ========================================= */
 .app-banner {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    width: 90%;
+    max-width: 420px;
     background: #ffffff;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 20px;
-    box-shadow: 0 -4px 15px rgba(0,0,0,0.15);
+    flex-direction: column;
+    padding: 30px 25px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
     z-index: 10000;
+    border-radius: 20px;
+    text-align: center;
+    opacity: 0;
+    animation: popupFadeIn 0.3s ease forwards;
 }
 
-/* Dark mode compatibility */
+@keyframes popupFadeIn {
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Dark mode compatibility for popup */
 body.dark-mode .app-banner {
     background: var(--nav-bg);
-    box-shadow: 0 -4px 15px rgba(0,0,0,0.5);
-    border-top: 1px solid var(--card-border);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+    border: 1px solid var(--card-border);
 }
 
 .app-banner-left {
     display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 15px;
+    margin-bottom: 22px;
 }
 
 .app-banner-logo {
-    width: 40px;
-    height: 40px;
+    width: 75px;
+    height: 75px;
     border-radius: 50%;
     object-fit: cover;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
 .app-banner-text h4 {
-    font-size: 15px;
+    font-size: 20px;
     color: var(--title-color);
-    margin: 0 0 2px 0;
+    margin: 0 0 5px 0;
     font-weight: 700;
 }
 
 .app-banner-text p {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--text-light);
     margin: 0;
+    line-height: 1.4;
 }
 
 .app-banner-right {
     display: flex;
-    align-items: center;
-    gap: 15px;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
 }
 
 .app-banner .download-btn {
     background: #00c853 !important; 
     color: #ffffff !important;
-    padding: 8px 20px !important;
-    border-radius: 5px !important;
-    font-size: 14px !important;
+    padding: 12px 20px !important;
+    border-radius: 30px !important;
+    font-size: 16px !important;
     font-weight: 600 !important;
-    box-shadow: none !important;
+    width: 100% !important;
+    box-shadow: 0 6px 20px rgba(0, 200, 83, 0.35) !important;
 }
 
 .app-banner .download-btn:hover {
     background: #00b248 !important;
-    transform: none !important;
+    transform: translateY(-2px) !important;
 }
 
 .close-banner-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
     background: transparent;
     border: none;
-    color: #b0bec5;
-    font-size: 22px;
+    color: #90a4ae;
+    font-size: 24px;
     cursor: pointer;
     padding: 0;
     display: flex;
@@ -942,45 +963,33 @@ body.dark-mode .app-banner {
 }
 
 .close-banner-btn:hover {
-    color: #78909c;
+    color: #37474f;
 }
 
-/* Mobile Responsiveness (Updated for small phones) */
-@media (max-width: 600px) {
+/* Mobile adjustments for popup */
+@media (max-width: 480px) {
     .app-banner {
-        padding: 10px;
+        width: 92%;
+        padding: 25px 20px;
     }
     .app-banner-logo {
-        width: 32px;
-        height: 32px;
-    }
-    .app-banner-left {
-        gap: 8px;
+        width: 65px;
+        height: 65px;
     }
     .app-banner-text h4 {
-        font-size: 12px;
+        font-size: 18px;
     }
     .app-banner-text p {
-        font-size: 10px;
-        line-height: 1.2;
-    }
-    .app-banner .download-btn {
-        padding: 6px 10px !important;
-        font-size: 12px !important;
-    }
-    .app-banner-right {
-        gap: 8px;
-    }
-    .close-banner-btn {
-        font-size: 20px;
+        font-size: 13px;
     }
 }
+
 /* =========================================
    Floating AI Chat Button Styles (Added Separately)
    ========================================= */
 .floating-ai-btn {
     position: fixed;
-    bottom: 85px; /* ऐप इंस्टॉल बैनर के ऊपर दिखने के लिए */
+    bottom: 20px;
     right: 20px;
     background: var(--accent-color, #FFD700);
     color: #1e3c72;
@@ -1009,42 +1018,12 @@ body.dark-mode .app-banner {
     color: #0f172a;
 }
 
-/* मोबाइल स्क्रीन के लिए रिस्पॉन्सिव */
+/* Mobile adjustments for AI button */
 @media (max-width: 600px) {
     .floating-ai-btn {
-        bottom: 75px;
+        bottom: 15px;
         right: 15px;
         padding: 10px 16px;
         font-size: 14px;
     }
-}
-.floating-ai-btn {
-    position: fixed;
-    bottom: 95px !important;
-    right: 20px;
-    background: var(--accent-color, #FFD700);
-    color: #1e3c72;
-    padding: 12px 20px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 15px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    z-index: 9999;
-    transition: all 0.3s ease;
-    border: 2px solid rgba(255, 255, 255, 0.4);
-    text-decoration: none;
-}
-
-.floating-ai-btn i {
-    font-size: 20px;
-}
-
-.floating-ai-btn:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-    background: #ffcc00;
-    color: #0f172a;
 }
